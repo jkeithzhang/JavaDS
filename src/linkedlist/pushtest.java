@@ -9,8 +9,8 @@ public class pushtest {
 		a.push(2);
 		a.push(3);
 		a.printList();
-//		System.out.println(a.getLength());
 		a.getLength();
+		a.append(1);
 	}
 
 }
