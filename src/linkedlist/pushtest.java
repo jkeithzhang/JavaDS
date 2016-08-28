@@ -8,8 +8,9 @@ public class pushtest {
 		a.push(1);
 		a.push(2);
 		a.push(3);
-		a.deleteNode(1);
 		a.printList();
+//		System.out.println(a.getLength());
+		a.getLength();
 	}
 
 }

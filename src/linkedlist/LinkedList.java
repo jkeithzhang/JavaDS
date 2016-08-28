@@ -1,8 +1,7 @@
 package linkedlist;
 
 class LinkedList {
-	Node head;
-	
+	Node head;	
 	// Used to define the component of the linked list
 	class Node {
 		int data;
@@ -12,6 +11,17 @@ class LinkedList {
 			data = d;
 			next = null;
 		}
+	}
+	
+	
+	// Find the length of the list
+	public void getLength() {
+		int len = 0;
+		while(this.head != null) {
+			len++;
+			this.head = this.head.next;
+		}
+		System.out.println(len);
 	}
 	
 	// Inserts a new Node at front of the list.
