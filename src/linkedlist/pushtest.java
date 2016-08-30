@@ -9,8 +9,9 @@ public class pushtest {
 		a.push(2);
 		a.push(3);
 		a.printList();
-		a.getLength();
-		a.append(1);
+		
+		System.out.println(a.getLengthRecursive());
+		System.out.println(a.getLengthIterative());
 	}
 
 }

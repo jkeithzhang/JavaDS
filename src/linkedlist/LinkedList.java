@@ -14,15 +14,29 @@ class LinkedList {
 	}
 	
 	
-	// Find the length of the list
-	public void getLength() {
+	// Find the length of the list with iterative way
+	public int getLengthIterative() {
 		int len = 0;
 		while(this.head != null) {
 			len++;
 			this.head = this.head.next;
 		}
-		System.out.println(len);
+		return len;
 	}
+	
+	// Find the length of the list with recursive way
+	private int getLengthRecursive(Node node) {
+        // Base case
+        if (node == null)
+            return 0;
+        // Count is this node plus rest of the list
+        return 1 + getLengthRecursive(node.next);
+	}
+	
+	public int getLengthRecursive() {
+		return getLengthRecursive(this.head);
+	}
+	
 	
 	// Inserts a new Node at front of the list.
 	public void push(int new_data)
