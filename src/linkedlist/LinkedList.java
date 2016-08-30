@@ -13,6 +13,50 @@ class LinkedList {
 		}
 	}
 	
+	// Swap Nodes x and y in linked list by changing links (assuming all the keys in array are distinct)
+	public void swapNodes(int a, int b) {
+		//a=b, no need to take action
+		if(a == b)
+			return;
+		//a!=b
+		Node prevA = null;
+		Node curA = this.head;
+		while(curA != null && curA.data != a) {
+			prevA = curA;
+			curA = curA.next;
+		}
+		
+		Node prevB = null;
+		Node curB = this.head;	
+		while(curB != null && curB.data != b) {
+			prevB = curB;
+			curB = curB.next;
+		}		
+		
+		if(curA == null || curB == null) {
+			//msg: keys not found
+			return;
+		}
+		
+		System.out.println(curA.data);
+		System.out.println(curB.data);
+		
+		if(prevA != null) {
+			prevA.next = curB;
+		} else {
+			this.head = curB;
+		}
+		
+		if(prevB != null) {
+			prevB.next = curA;
+		} else {
+			this.head = curA;
+		}	
+		
+        Node temp = curA.next;
+        curA.next = curB.next;
+        curB.next = temp;		
+	}
 	
 	// Find the length of the list with iterative way
 	public int getLengthIterative() {
@@ -23,7 +67,7 @@ class LinkedList {
 		}
 		return len;
 	}
-	
+		
 	// Find the length of the list with recursive way
 	private int getLengthRecursive(Node node) {
         // Base case
@@ -33,10 +77,10 @@ class LinkedList {
         return 1 + getLengthRecursive(node.next);
 	}
 	
+	// Wrapper for getLengthRecursive()
 	public int getLengthRecursive() {
 		return getLengthRecursive(this.head);
 	}
-	
 	
 	// Inserts a new Node at front of the list.
 	public void push(int new_data)
@@ -103,5 +147,7 @@ class LinkedList {
 			System.out.print(node.data);
 			node = node.next;
 		}
+		// Line breaker
+		System.out.println("");
 	}
 }
