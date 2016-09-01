@@ -13,7 +13,22 @@ class LinkedList {
 		}
 	}
 	
-	// Swap Nodes x and y in linked list by changing links (assuming all the keys in array are distinct)
+	// Function to reverse the linked list
+	public Node reverse() {
+		// 1 -> 2 -> 3 -> 4 -> 5 -> null
+		Node prev = null;
+		Node curr = this.head;
+		Node next = null;
+		while(curr != null) {
+			next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;	
+		}
+		return prev;
+	}
+	
+	// Swap Nodes a and b in linked list (this function assuming all the keys in array are distinct, can add check later on)
 	public void swapNodes(int a, int b) {
 		//a=b, no need to take action
 		if(a == b)
@@ -142,7 +157,7 @@ class LinkedList {
      
 	// Function that print out the whole linked list 
 	public void printList() {
-		Node node = head;
+		Node node = this.head;
 		while(node != null) {
 			System.out.print(node.data);
 			node = node.next;
